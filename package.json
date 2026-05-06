@@ -1,0 +1,11 @@
+{
+  "name": "vybe-music-analyzer-root",
+  "private": true,
+  "workspaces": [
+    "vybe-stats-main"
+  ],
+  "scripts": {
+    "build": "node ./scripts/vercel-build.mjs"
+  }
+}
+

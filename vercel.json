@@ -1,0 +1,5 @@
+{
+  "name": "vybe-music-analyzer",
+  "buildCommand": "npm run build"
+}
+

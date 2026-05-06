@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-clash: 'Clash Display', sans-serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-dm-mono: 'DM Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-vybe-green: var(--vybe-green);
+  --color-vybe-amber: var(--vybe-amber);
+  --color-vybe-coral: var(--vybe-coral);
+  --color-vybe-card: var(--vybe-card);
+  --color-vybe-elevated: var(--vybe-elevated);
+  --color-vybe-muted-fill: var(--vybe-muted-fill);
+  --color-vybe-text-muted: var(--vybe-text-muted);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.64 0.2 150);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.3 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.2 0 0);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.64 0.2 150);
+  --vybe-green: oklch(0.64 0.2 150);
+  --vybe-amber: oklch(0.78 0.15 75);
+  --vybe-coral: oklch(0.65 0.2 25);
+  --vybe-card: oklch(0.145 0 0);
+  --vybe-elevated: oklch(0.185 0 0);
+  --vybe-muted-fill: oklch(0.28 0 0);
+  --vybe-text-muted: oklch(0.68 0 0);
+  --chart-1: oklch(0.64 0.2 150);
+  --chart-2: oklch(0.78 0.15 75);
+  --chart-3: oklch(0.65 0.2 25);
+  --chart-4: oklch(0.6 0.15 260);
+  --chart-5: oklch(0.7 0.15 330);
+  --sidebar: oklch(0.145 0 0);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.64 0.2 150);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.2 0 0);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.64 0.2 150);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    caret-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    min-height: 100%;
+    overflow-x: hidden;
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+    margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /** Faster taps on mobile; remove default grey flash */
+  button,
+  [role="button"],
+  input[type="submit"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Hard lock: no text selection/caret across app UI by default */
+  .vybe-shell-width,
+  .vybe-shell-width * {
+    user-select: none;
+    -webkit-user-select: none;
+    caret-color: transparent;
+    cursor: default;
+  }
+
+  /* Keep real form fields and explicitly-allowed blocks normal */
+  input,
+  textarea,
+  select,
+  [contenteditable="true"],
+  .allow-select {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    caret-color: auto !important;
+    cursor: text !important;
+  }
+
+  a,
+  button,
+  [role="button"],
+  [data-clickable="true"] {
+    cursor: pointer !important;
+  }
+
+  /* Prevent chart labels/headings from showing selection or text caret on click */
+  h1,
+  h2,
+  h3,
+  .vybe-page-title,
+  .recharts-wrapper,
+  .recharts-wrapper *,
+  .recharts-surface,
+  .recharts-surface * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none;
+    caret-color: transparent !important;
+    cursor: default;
+  }
+
+  /* Extra hardening for SVG axis/legend text */
+  svg,
+  svg * ,
+  text,
+  tspan,
+  .recharts-text,
+  .recharts-label,
+  .recharts-cartesian-axis-tick-value {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none;
+    caret-color: transparent !important;
+    cursor: default !important;
+  }
+
+  /* Recharts may focus internal SVG groups (tabindex) and draw focus ring/box */
+  .recharts-wrapper:focus,
+  .recharts-wrapper *:focus,
+  .recharts-wrapper [tabindex]:focus,
+  .recharts-wrapper [role]:focus,
+  .recharts-surface:focus,
+  .recharts-surface *:focus,
+  svg:focus,
+  g:focus,
+  path:focus,
+  text:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .recharts-wrapper:focus-visible,
+  .recharts-wrapper *:focus-visible,
+  .recharts-wrapper [tabindex]:focus-visible,
+  .recharts-wrapper [role]:focus-visible,
+  .recharts-surface:focus-visible,
+  .recharts-surface *:focus-visible,
+  svg:focus-visible,
+  g:focus-visible,
+  path:focus-visible,
+  text:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove selection paint flash on non-input UI text */
+  *::selection {
+    background: transparent;
+    color: inherit;
+  }
+
+  input::selection,
+  textarea::selection,
+  [contenteditable="true"]::selection,
+  .allow-select::selection {
+    background: rgba(29, 185, 84, 0.3);
+  }
+}
+
+@layer utilities {
+  /** Page headings — scales between phone and desktop */
+  .vybe-page-title {
+    font-family: "Clash Display", sans-serif;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: clamp(1.375rem, 1.05rem + 1.75vw, 2rem);
+  }
+
+  @media (min-width: 768px) {
+    .vybe-page-title {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.75rem, 1.35rem + 1.2vw, 2.125rem);
+    }
+  }
+
+  /** Auth / narrow forms centred on wide shells */
+  .vybe-readable-column {
+    width: 100%;
+    max-width: min(100%, 22rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .vybe-readable-column {
+      max-width: min(100%, 28rem);
+    }
+  }
+
+/* Shared max-width: phone-scale on small screens, expands on tablet/desktop browsers */
+  .vybe-shell-width {
+    width: 100%;
+    max-width: min(100%, 390px);
+  }
+
+  @media (min-width: 768px) {
+    .vybe-shell-width {
+      max-width: min(calc(100% - 2rem), 680px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .vybe-shell-width {
+      max-width: min(calc(100% - 3rem), 960px);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .vybe-shell-width {
+      max-width: min(calc(100% - 4rem), 1120px);
+    }
+  }
+}
+
+@layer components {
+  .font-clash {
+    font-family: 'Clash Display', sans-serif;
+  }
+  .font-dm-mono {
+    font-family: 'DM Mono', monospace;
+  }
+  .font-dm-sans {
+    font-family: 'DM Sans', sans-serif;
+  }
+  .vybe-card {
+    background-color: #111111;
+    border-radius: 16px;
+    padding: 16px;
+    border: none;
+  }
+  .vybe-elevated {
+    background-color: #1C1C1C;
+  }
+  .vybe-btn-primary {
+    background-color: #1DB954;
+    border-radius: 50px;
+    height: 52px;
+    width: 100%;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+  }
+  .vybe-btn-primary:hover {
+    opacity: 0.9;
+  }
+  .vybe-btn-primary:active {
+    transform: scale(0.98);
+    opacity: 0.88;
+  }
+  .vybe-btn-ghost {
+    background-color: transparent;
+    border: 1.5px solid #1DB954;
+    border-radius: 50px;
+    height: 52px;
+    width: 100%;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #1DB954;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.15s ease, opacity 0.2s ease;
+  }
+  .vybe-btn-ghost:hover {
+    opacity: 0.8;
+  }
+  .vybe-btn-ghost:active {
+    transform: scale(0.98);
+    opacity: 0.75;
+  }
+
+  /** Secondary OAuth-style pill (login / signup) */
+  .vybe-btn-oauth {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, opacity 0.15s ease, background-color 0.15s ease;
+  }
+  .vybe-btn-oauth:active {
+    transform: scale(0.98);
+    opacity: 0.92;
+  }
+  @media (hover: hover) {
+    .vybe-btn-oauth:hover {
+      background-color: #252525 !important;
+    }
+  }
+
+  .vybe-input {
+    background-color: #1C1C1C;
+    height: 52px;
+    border-radius: 12px;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    width: 100%;
+    padding: 0 16px 0 44px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .vybe-input:focus {
+    border-bottom-color: #1DB954;
+  }
+  .vybe-input::placeholder {
+    color: #A0A0A0;
+  }
+
+  .battle-picker-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .battle-picker-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .battle-picker-item {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0.8rem;
+    font-size: 13px;
+    font-family: "Press Start 2P", "DM Mono", monospace;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background-color 0.16s ease, color 0.16s ease;
+    color: #ffffff;
+  }
+  .battle-picker-item:hover {
+    background-color: #1DB954 !important;
+    color: #041109 !important;
+  }
+  .battle-picker-item.is-selected {
+    background-color: #F5A623 !important;
+    color: #141414 !important;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Reduces paint/layout work for offscreen heavy cards/charts */
+  .perf-scroll-section {
+    content-visibility: auto;
+    contain: layout style paint;
+    contain-intrinsic-size: 360px;
+  }
+
+  @keyframes equalizerBar1 {
+    0%, 100% { height: 4px; }
+    50% { height: 16px; }
+  }
+  @keyframes equalizerBar2 {
+    0%, 100% { height: 8px; }
+    50% { height: 20px; }
+  }
+  @keyframes equalizerBar3 {
+    0%, 100% { height: 6px; }
+    50% { height: 14px; }
+  }
+  .eq-bar-1 {
+    animation: equalizerBar1 0.8s ease-in-out infinite;
+  }
+  .eq-bar-2 {
+    animation: equalizerBar2 0.6s ease-in-out infinite;
+  }
+  .eq-bar-3 {
+    animation: equalizerBar3 1s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background-color: #1C1C1C;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, #252525, transparent);
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 8px #1DB954, 0 0 2px #1DB954; }
+    50% { box-shadow: 0 0 14px #1DB954, 0 0 4px #1DB954; }
+  }
+  .slider-thumb-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+}

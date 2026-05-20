@@ -376,4 +376,6 @@ Made with 🎧 and a lot of statistics by **Anass Khan**, **Kanzah Sajjad** & **
 
 <br/>
 
+[![Live Demo](https://img.shields.io/badge/🚀_Try_Vybe_Now-1DB954?style=for-the-badge)](https://vybe-stats-main.vercel.app/)
+
 </div>

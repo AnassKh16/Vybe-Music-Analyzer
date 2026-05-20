@@ -30,21 +30,32 @@
 
 ## 📸 Screenshots
 
-> Add your screenshots here after capturing them from the live app
+<div align="center">
 
-| Home Dashboard | Playlist Generator | Song Face-Off |
-|:-:|:-:|:-:|
-| `<img width="851" height="818" alt="image" src="https://github.com/user-attachments/assets/375f14ef-b922-49d1-a757-93bc43590f16" />
-`<img width="858" height="821" alt="image" src="https://github.com/user-attachments/assets/da418160-fe05-4055-9dd3-a19ada62e697" />
-`<img width="846" height="814" alt="image" src="https://github.com/user-attachments/assets/4eb6238c-1dc1-4a08-b5cc-8d27e803618f" />
-`|
+<table>
+  <tr>
+    <td align="center"><b>Home Dashboard</b></td>
+    <td align="center"><b>Playlist Generator</b></td>
+    <td align="center"><b>Song Face-Off</b></td>
+  </tr>
+  <tr>
+    <td><img width="280" src="https://github.com/user-attachments/assets/375f14ef-b922-49d1-a757-93bc43590f16" /></td>
+    <td><img width="280" src="https://github.com/user-attachments/assets/da418160-fe05-4055-9dd3-a19ada62e697" /></td>
+    <td><img width="280" src="https://github.com/user-attachments/assets/4eb6238c-1dc1-4a08-b5cc-8d27e803618f" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Hit Predictor</b></td>
+    <td align="center"><b>Genre Battle</b></td>
+    <td align="center"><b>Live Quiz</b></td>
+  </tr>
+  <tr>
+    <td><img width="280" src="https://github.com/user-attachments/assets/4d9d94c8-d1fc-498c-a878-6d0c19d8f9a9" /></td>
+    <td><img width="280" src="https://github.com/user-attachments/assets/3779e553-e340-49c1-990d-4e9300130147" /></td>
+    <td><img width="280" src="https://github.com/user-attachments/assets/15c50a1e-3fd0-4f85-a718-eaadcd568e2d" /></td>
+  </tr>
+</table>
 
-| Hit Predictor | Genre Battle | Live Quiz |
-|:-:|:-:|:-:|
-| `<img width="885" height="822" alt="image" src="https://github.com/user-attachments/assets/4d9d94c8-d1fc-498c-a878-6d0c19d8f9a9" />
-`<img width="867" height="818" alt="image" src="https://github.com/user-attachments/assets/3779e553-e340-49c1-990d-4e9300130147" />
-`<img width="843" height="818" alt="image" src="https://github.com/user-attachments/assets/15c50a1e-3fd0-4f85-a718-eaadcd568e2d" />
-` |
+</div>
 
 ---
 
